@@ -35,6 +35,9 @@ on post-fs-data
     chmod 0775 /data/log
     chmod 0775 /data/anr
 
+# restore permissions for gps
+    mkdir /data/system 0775 system system
+
     # create data/gps for GPS demon
     chown root system /dev/ttySAC1
     chmod 0660 /dev/ttySAC1
@@ -44,6 +47,7 @@ on post-fs-data
     chmod 0664 /sys/class/sec/gps/GPS_nRST/value
     mkdir /data/gps 771 system system
     chown system system /data/gps
+    mkdir /data/system/gps 771 gps system
 
     mkdir /data/misc/radio 0775 radio system
     chmod 0775 /data/misc/radio
